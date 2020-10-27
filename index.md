@@ -1,3 +1,9 @@
+# Welcome to my Research Project!
+
+The goal of this project will be to use data mining to predict National Hockey League games.
+
+This project will use Github for version tracking.
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/KardasR/Research-Project/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
