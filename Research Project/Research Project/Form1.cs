@@ -20,7 +20,7 @@ namespace Research_Project
         }
 
         // CSV file of stats for year 2019.
-        var stats2019path = @"E:\School\Senior Research\Research Project\Research Project\2018-2019teamStats.csv";
+        string stats2019path = @"E:\School\Senior Research\Research Project\Research Project\2018-2019teamStats.csv";
 
 
 
@@ -48,7 +48,7 @@ namespace Research_Project
                     }
                 }
                 // There should never not be a match for a given team name.
-                return "You should never be seeing this. I'm just putting this here to avoid an error."
+                return "You should never be seeing this. I'm just putting this here to avoid an error.";
             }
         }
 
@@ -83,15 +83,14 @@ namespace Research_Project
         /// <param name="teamAname"></param>
         /// <param name="teamBname"></param>
         /// <returns></returns>
-        private double OrigPythWins(string teamAname, string teamBname)
+        private double OrigPythWins(string teamStats)
         {
-            // Goals for is pos = 8
-            // Goal Against is pos = 9
+            // Goals for is at pos = 8 in string csv
+            // Goal Against is at pos = 9 in string csv
 
             // First do teamA
-            string teamAstats = GetTeamStats(teamAname, stats2019path);
-            int goalsFor = GetStat(teamAstats, 8);
-            int goalsAgainst = GetStat(teamAstats, 9);
+            int goalsFor = GetStat(teamStats, 8);
+            int goalsAgainst = GetStat(teamStats, 9);
 
             double pythWins = (Math.Pow(goalsFor, 2) / ((Math.Pow(goalsFor, 2)) + (Math.Pow(goalsAgainst, 2))));
 
@@ -119,8 +118,17 @@ namespace Research_Project
         {
             // TODO: Make program wait until the user has selected two teams.
 
-            string teamStats = GetTeamStats((string)listBoxTeamA.SelectedItem, stats2019path);
+            // Get the stats for the two teams.
+            string teamAStats = GetTeamStats((string)listBoxTeamA.SelectedItem, stats2019path);
+            string teamBStats = GetTeamStats((string)listBoxTeamB.SelectedItem, stats2019path);
 
+            // Get the Original Pythagorean Wins for each team.
+            double teamAogPW = OrigPythWins(teamAStats);
+            double teamBogPW = OrigPythWins(teamBStats);
+
+            // Update the UI.
+            txtbxTeamAogPW.Text = teamAogPW.ToString();
+            txtbxTeamBogPW.Text = teamBogPW.ToString();
         }
     }
 }
