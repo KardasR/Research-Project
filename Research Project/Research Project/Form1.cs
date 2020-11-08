@@ -20,7 +20,7 @@ namespace Research_Project
         }
 
         // CSV file of stats for year 2019.
-        string stats2019path = @"E:\School\Senior Research\Research Project\Research Project\2018-2019teamStats.csv";
+        string stats2019path = @"C:\Users\Ryank\source\repos\KardasR\Research-Project\Research Project\Research Project\2018-2019teamStats.csv";
 
 
 
@@ -58,11 +58,11 @@ namespace Research_Project
         /// <param name="teamStats">Line from CSV file to look through.</param>
         /// <param name="statPos">Position in the CSV line of the stat. (Wins,Losses,etc.)</param>
         /// <returns name="stat">Individual stat that was requested.</returns>
-        private int GetStat(string teamStats, int statPos)
+        private double GetStat(string teamStats, int statPos)
         {
             // Split the given string into an array and return the value in the given position.
             string[] stats = teamStats.Split(',');
-            int stat = int.Parse(stats[statPos]);
+            double stat = double.Parse(stats[statPos]);
             return stat;
         }
 
@@ -89,8 +89,8 @@ namespace Research_Project
             // Goal Against is at pos = 9 in string csv
 
             // First do teamA
-            int goalsFor = GetStat(teamStats, 8);
-            int goalsAgainst = GetStat(teamStats, 9);
+            int goalsFor = (int)GetStat(teamStats, 8);
+            int goalsAgainst = (int)GetStat(teamStats, 9);
 
             double pythWins = (Math.Pow(goalsFor, 2) / ((Math.Pow(goalsFor, 2)) + (Math.Pow(goalsAgainst, 2))));
 
@@ -121,12 +121,17 @@ namespace Research_Project
             // Get the stats for the two teams.
             string teamAStats = GetTeamStats((string)listBoxTeamA.SelectedItem, stats2019path);
             string teamBStats = GetTeamStats((string)listBoxTeamB.SelectedItem, stats2019path);
+            double teamArealWinPerc = GetStat(teamAStats, 7);
+            double teamBrealWinPerc = GetStat(teamBStats, 7);
 
             // Get the Original Pythagorean Wins for each team.
             double teamAogPW = OrigPythWins(teamAStats);
             double teamBogPW = OrigPythWins(teamBStats);
 
             // Update the UI.
+            txtbxTeamAwinPer.Text = teamArealWinPerc.ToString();
+            txtbxTeamBwinPer.Text = teamBrealWinPerc.ToString();
+
             txtbxTeamAogPW.Text = teamAogPW.ToString();
             txtbxTeamBogPW.Text = teamBogPW.ToString();
         }
