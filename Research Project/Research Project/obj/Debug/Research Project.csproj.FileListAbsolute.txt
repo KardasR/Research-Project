@@ -1,0 +1,10 @@
+E:\School\Senior Research\Research Project\Research Project\bin\Debug\Research Project.exe.config
+E:\School\Senior Research\Research Project\Research Project\bin\Debug\Research Project.exe
+E:\School\Senior Research\Research Project\Research Project\bin\Debug\Research Project.pdb
+E:\School\Senior Research\Research Project\Research Project\obj\Debug\Research Project.csprojAssemblyReference.cache
+E:\School\Senior Research\Research Project\Research Project\obj\Debug\Research_Project.Form1.resources
+E:\School\Senior Research\Research Project\Research Project\obj\Debug\Research_Project.Properties.Resources.resources
+E:\School\Senior Research\Research Project\Research Project\obj\Debug\Research Project.csproj.GenerateResource.cache
+E:\School\Senior Research\Research Project\Research Project\obj\Debug\Research Project.csproj.CoreCompileInputs.cache
+E:\School\Senior Research\Research Project\Research Project\obj\Debug\Research Project.exe
+E:\School\Senior Research\Research Project\Research Project\obj\Debug\Research Project.pdb

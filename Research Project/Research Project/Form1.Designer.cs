@@ -28,26 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.textboxWinner = new System.Windows.Forms.TextBox();
-            this.textboxWins = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.listBoxTeamA = new System.Windows.Forms.ListBox();
+            this.listBoxTeamB = new System.Windows.Forms.ListBox();
             this.btnPredict = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBoxWinPerc = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // listBox1
+            // listBoxTeamA
             // 
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Items.AddRange(new object[] {
+            this.listBoxTeamA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.listBoxTeamA.FormattingEnabled = true;
+            this.listBoxTeamA.ItemHeight = 20;
+            this.listBoxTeamA.Items.AddRange(new object[] {
             "Anaheim Ducks",
             "Arizona Coyotes",
             "Boston Bruins",
@@ -79,17 +76,17 @@
             "Vegas Golden Knights",
             "Washington Capitals",
             "Winnipeg Jets"});
-            this.listBox1.Location = new System.Drawing.Point(12, 132);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(145, 24);
-            this.listBox1.TabIndex = 0;
+            this.listBoxTeamA.Location = new System.Drawing.Point(12, 199);
+            this.listBoxTeamA.Name = "listBoxTeamA";
+            this.listBoxTeamA.Size = new System.Drawing.Size(145, 24);
+            this.listBoxTeamA.TabIndex = 0;
             // 
-            // listBox2
+            // listBoxTeamB
             // 
-            this.listBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 20;
-            this.listBox2.Items.AddRange(new object[] {
+            this.listBoxTeamB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.listBoxTeamB.FormattingEnabled = true;
+            this.listBoxTeamB.ItemHeight = 20;
+            this.listBoxTeamB.Items.AddRange(new object[] {
             "Anaheim Ducks",
             "Arizona Coyotes",
             "Boston Bruins",
@@ -121,50 +118,16 @@
             "Vegas Golden Knights",
             "Washington Capitals",
             "Winnipeg Jets"});
-            this.listBox2.Location = new System.Drawing.Point(426, 132);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(145, 24);
-            this.listBox2.TabIndex = 1;
-            // 
-            // textboxWinner
-            // 
-            this.textboxWinner.Location = new System.Drawing.Point(284, 56);
-            this.textboxWinner.Name = "textboxWinner";
-            this.textboxWinner.ReadOnly = true;
-            this.textboxWinner.Size = new System.Drawing.Size(100, 20);
-            this.textboxWinner.TabIndex = 2;
-            // 
-            // textboxWins
-            // 
-            this.textboxWins.Location = new System.Drawing.Point(284, 120);
-            this.textboxWins.Name = "textboxWins";
-            this.textboxWins.ReadOnly = true;
-            this.textboxWins.Size = new System.Drawing.Size(100, 20);
-            this.textboxWins.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(203, 59);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Winner";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(213, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Wins";
+            this.listBoxTeamB.Location = new System.Drawing.Point(426, 199);
+            this.listBoxTeamB.Name = "listBoxTeamB";
+            this.listBoxTeamB.Size = new System.Drawing.Size(145, 24);
+            this.listBoxTeamB.TabIndex = 1;
             // 
             // btnPredict
             // 
-            this.btnPredict.Location = new System.Drawing.Point(206, 163);
+            this.btnPredict.Location = new System.Drawing.Point(177, 163);
             this.btnPredict.Name = "btnPredict";
-            this.btnPredict.Size = new System.Drawing.Size(178, 67);
+            this.btnPredict.Size = new System.Drawing.Size(231, 60);
             this.btnPredict.TabIndex = 6;
             this.btnPredict.Text = "Predict";
             this.btnPredict.UseVisualStyleBackColor = true;
@@ -174,7 +137,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label3.Location = new System.Drawing.Point(53, 112);
+            this.label3.Location = new System.Drawing.Point(53, 179);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 17);
             this.label3.TabIndex = 7;
@@ -184,7 +147,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label4.Location = new System.Drawing.Point(466, 112);
+            this.label4.Location = new System.Drawing.Point(466, 179);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 17);
             this.label4.TabIndex = 8;
@@ -200,40 +163,49 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Predict NHL Games";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(131, 17);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Team A Predictions";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label2.Location = new System.Drawing.Point(440, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(131, 17);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Team B Predictions";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(143, 90);
+            this.label6.Location = new System.Drawing.Point(9, 54);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(101, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Win Percentage (%)";
-            // 
-            // textBoxWinPerc
-            // 
-            this.textBoxWinPerc.Location = new System.Drawing.Point(284, 87);
-            this.textBoxWinPerc.Name = "textBoxWinPerc";
-            this.textBoxWinPerc.ReadOnly = true;
-            this.textBoxWinPerc.Size = new System.Drawing.Size(100, 20);
-            this.textBoxWinPerc.TabIndex = 11;
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "OG Pyth Wins";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(583, 240);
-            this.Controls.Add(this.textBoxWinPerc);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnPredict);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textboxWins);
-            this.Controls.Add(this.textboxWinner);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBoxTeamB);
+            this.Controls.Add(this.listBoxTeamA);
             this.Name = "Form1";
             this.Text = "NHL Predictor";
             this.ResumeLayout(false);
@@ -243,18 +215,15 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.TextBox textboxWinner;
-        private System.Windows.Forms.TextBox textboxWins;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListBox listBoxTeamA;
+        private System.Windows.Forms.ListBox listBoxTeamB;
         private System.Windows.Forms.Button btnPredict;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxWinPerc;
     }
 }
 
