@@ -18,3 +18,13 @@ C:\Users\Ryank\source\repos\KardasR\Research-Project\Research Project\Research P
 C:\Users\Ryank\source\repos\KardasR\Research-Project\Research Project\Research Project\bin\Debug\Research Project.exe
 C:\Users\Ryank\source\repos\KardasR\Research-Project\Research Project\Research Project\bin\Debug\Research Project.pdb
 C:\Users\Ryank\source\repos\KardasR\Research-Project\Research Project\Research Project\obj\Debug\Research_Project.PWform.resources
+C:\Users\Ryank\Documents\GitHub\Research-Project\Research Project\Research Project\bin\Debug\Research Project.exe.config
+C:\Users\Ryank\Documents\GitHub\Research-Project\Research Project\Research Project\bin\Debug\Research Project.exe
+C:\Users\Ryank\Documents\GitHub\Research-Project\Research Project\Research Project\bin\Debug\Research Project.pdb
+C:\Users\Ryank\Documents\GitHub\Research-Project\Research Project\Research Project\obj\Debug\Research Project.csprojAssemblyReference.cache
+C:\Users\Ryank\Documents\GitHub\Research-Project\Research Project\Research Project\obj\Debug\Research_Project.PWform.resources
+C:\Users\Ryank\Documents\GitHub\Research-Project\Research Project\Research Project\obj\Debug\Research_Project.Properties.Resources.resources
+C:\Users\Ryank\Documents\GitHub\Research-Project\Research Project\Research Project\obj\Debug\Research Project.csproj.GenerateResource.cache
+C:\Users\Ryank\Documents\GitHub\Research-Project\Research Project\Research Project\obj\Debug\Research Project.csproj.CoreCompileInputs.cache
+C:\Users\Ryank\Documents\GitHub\Research-Project\Research Project\Research Project\obj\Debug\Research Project.exe
+C:\Users\Ryank\Documents\GitHub\Research-Project\Research Project\Research Project\obj\Debug\Research Project.pdb

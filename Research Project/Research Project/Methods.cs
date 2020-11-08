@@ -5,11 +5,6 @@ namespace Research_Project
 {
     public class Methods
     {
-        // CSV file of stats for year 2019.
-        string stats2019path = @"C:\Users\Ryank\source\repos\KardasR\Research-Project\Research Project\Research Project\2018-2019teamStats.csv";
-
-
-
         /// <summary>
         /// Finds stats of given team in given file.
         /// </summary>
@@ -33,7 +28,7 @@ namespace Research_Project
                         return currentLine;
                     }
                 }
-                // There should never not be a match for a given team name.
+                // There should never not be a match for a given team name. But if there is the program will return this to avoid an error.
                 return "Hartford Whalers,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0";
             }
         }
