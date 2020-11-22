@@ -242,6 +242,8 @@ namespace Research_Project
             int goalsFor = (int)GetStat(teamStats, 8);
             // Goal Against is at pos = 9 in string csv
             int goalsAgainst = (int)GetStat(teamStats, 9);
+
+            // Get the best X Value to use
             double xValue = GetXValue(teamStats);
 
             // Math!

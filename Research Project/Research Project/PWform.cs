@@ -29,8 +29,6 @@ namespace Research_Project
             // Get the stats for the two teams.
             string teamAStats = methods.GetTeamStats((string)listBoxTeamA.SelectedItem, stats2019path);
             string teamBStats = methods.GetTeamStats((string)listBoxTeamB.SelectedItem, stats2019path);
-            double teamArealWinPerc = methods.GetStat(teamAStats, 7);
-            double teamBrealWinPerc = methods.GetStat(teamBStats, 7);
 
             // Get the Original Pythagorean Wins for each team.
             double teamAogPW = methods.OrigPythWins(teamAStats);
@@ -39,6 +37,12 @@ namespace Research_Project
             // Get the Adjusted Pythagorean Wins for each team.
             double teamAadjPW = methods.AdjPythWins(teamAStats);
             double teamBadjPW = methods.AdjPythWins(teamBStats);
+
+            // Get the Real Winning Percentage for each team.
+            double teamArealWinPerc = methods.GetStat(teamAStats, 7);
+            double teamBrealWinPerc = methods.GetStat(teamBStats, 7);
+
+            // Get the 
 
             // Update the UI.
             txtbxTeamAwinPer.Text = teamArealWinPerc.ToString();
@@ -50,10 +54,23 @@ namespace Research_Project
             txtbxTeamAogPW.Text = teamAogPW.ToString();
             txtbxTeamBogPW.Text = teamBogPW.ToString();
 
+            // Show the predicted winner of the Original Pythagorean Wins method.
             if (teamAogPW > teamBogPW)
                 txtbxOGPWWinner.Text = listBoxTeamA.Text;
             else
                 txtbxOGPWWinner.Text = listBoxTeamB.Text;
+
+            // Show the predicted winner of the Adjusted Pythagorean Wins method.
+            if (teamAadjPW > teamBadjPW)
+                txtbxAPWWinner.Text = listBoxTeamA.Text;
+            else
+                txtbxAPWWinner.Text = listBoxTeamB.Text;
+
+            // Show the predicted winner of the Real Winning percentage comparison
+            if (teamArealWinPerc > teamBrealWinPerc)
+                txtbxRealWPWinner.Text = listBoxTeamA.Text;
+            else
+                txtbxRealWPWinner.Text = listBoxTeamB.Text;
         }
     }
 }

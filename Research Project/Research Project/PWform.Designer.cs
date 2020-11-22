@@ -51,8 +51,9 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtbxOGPWWinner = new System.Windows.Forms.TextBox();
             this.txtbxAPWWinner = new System.Windows.Forms.TextBox();
-            this.txtbxRealWinner = new System.Windows.Forms.TextBox();
+            this.txtbxRealWPWinner = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listBoxTeamA
@@ -337,35 +338,48 @@
             this.txtbxAPWWinner.Text = "Detroit Red Wings";
             this.txtbxAPWWinner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtbxRealWinner
+            // txtbxRealWPWinner
             // 
-            this.txtbxRealWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbxRealWinner.Location = new System.Drawing.Point(275, 213);
-            this.txtbxRealWinner.Multiline = true;
-            this.txtbxRealWinner.Name = "txtbxRealWinner";
-            this.txtbxRealWinner.ReadOnly = true;
-            this.txtbxRealWinner.Size = new System.Drawing.Size(482, 26);
-            this.txtbxRealWinner.TabIndex = 28;
-            this.txtbxRealWinner.Text = "Detroit Red Wings";
-            this.txtbxRealWinner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtbxRealWPWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbxRealWPWinner.Location = new System.Drawing.Point(275, 184);
+            this.txtbxRealWPWinner.Multiline = true;
+            this.txtbxRealWPWinner.Name = "txtbxRealWPWinner";
+            this.txtbxRealWPWinner.ReadOnly = true;
+            this.txtbxRealWPWinner.Size = new System.Drawing.Size(482, 26);
+            this.txtbxRealWPWinner.TabIndex = 28;
+            this.txtbxRealWPWinner.Text = "Detroit Red Wings";
+            this.txtbxRealWPWinner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(444, 181);
+            this.label13.Location = new System.Drawing.Point(437, 223);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(141, 25);
             this.label13.TabIndex = 29;
             this.label13.Text = "Real Winner";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(275, 251);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(482, 26);
+            this.textBox1.TabIndex = 30;
+            this.textBox1.Text = "To Be Determined";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // PWform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1030, 369);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.txtbxRealWinner);
+            this.Controls.Add(this.txtbxRealWPWinner);
             this.Controls.Add(this.txtbxAPWWinner);
             this.Controls.Add(this.txtbxOGPWWinner);
             this.Controls.Add(this.label12);
@@ -421,8 +435,9 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtbxOGPWWinner;
         private System.Windows.Forms.TextBox txtbxAPWWinner;
-        private System.Windows.Forms.TextBox txtbxRealWinner;
+        private System.Windows.Forms.TextBox txtbxRealWPWinner;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
