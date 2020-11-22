@@ -301,12 +301,39 @@ namespace Research_Project
         /// This will find the Ratings Percentage Index of a team
         /// 
         /// </para>
+        /// <para>
+        /// 
+        /// The formula is: RPI = (WP * 0.25) + (OWP * 0.5) + (OOWP * 0.25)
+        /// 
+        /// </para>
+        /// <para>
+        /// 
+        /// Where: 
+        /// RPI = Ratings Percentage Index | 
+        /// WP = Winning Percentage of team | 
+        /// OWP = Opponents Winning Percentage | 
+        /// OOWP = Opponents Opponents Winning Percentage
+        /// 
+        /// </para>
         /// </summary>
-        /// <param name="teamStats"></param>
-        /// <returns></returns>
+        /// <param name="teamStats">Line from CSV file to look through.</param>
+        /// <returns name="RPI">Calculated Ratings Percentage Index of the given team.</returns>
         public int RatingsPercentageIndex(string teamStats)
         {
-            return 0;
+            // First step is to calculate the winning percentage of the team
+            // Luckily the winning percentage is a stat kept on index 7
+            double teamWinPerc = GetStat(teamStats, 7);
+
+            // Next we need to find the opponents winning percentage
+            double oppWinPerc = 0.0;
+
+            // Then we need to find the opponents opponents winning percentage
+            double oppOppWinPerc = 0.0;
+
+            // Now we calculate the Ratings Percentage Index of the given team.
+            double RPI = (teamWinPerc * 0.25) + (oppWinPerc * 0.5) + (oppOppWinPerc * 0.25);
+
+            return (int)RPI;
         }
     }
 }
