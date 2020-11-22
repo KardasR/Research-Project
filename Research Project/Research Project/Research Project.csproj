@@ -61,6 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleTest.cs" />
+    <Compile Include="FindBestX.cs" />
     <Compile Include="PWform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +84,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="2015-2016seasonGames.csv" />
+    <None Include="2015-2016teamStats.csv" />
+    <None Include="2016-2017seasonGames.csv" />
+    <None Include="2016-2017teamStats.csv" />
+    <None Include="2017-2018seasonGames.csv" />
+    <None Include="2017-2018teamStats.csv" />
     <None Include="2018-2019seasonGames.csv" />
     <None Include="2018-2019teamStats.csv" />
     <None Include="Properties\Settings.settings">

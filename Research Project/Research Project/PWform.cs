@@ -51,9 +51,9 @@ namespace Research_Project
             txtbxTeamBogPW.Text = teamBogPW.ToString();
 
             if (teamAogPW > teamBogPW)
-                txtbxWinner.Text = listBoxTeamA.Text;
+                txtbxOGPWWinner.Text = listBoxTeamA.Text;
             else
-                txtbxWinner.Text = listBoxTeamB.Text;
+                txtbxOGPWWinner.Text = listBoxTeamB.Text;
         }
     }
 }
