@@ -42,9 +42,14 @@ namespace Research_Project
             double teamArealWinPerc = methods.GetStat(teamAStats, 7);
             double teamBrealWinPerc = methods.GetStat(teamBStats, 7);
 
-            // Get the 
+            // Get the Ratings Percentage Index for each team.
+            double teamArpi = methods.RatingsPercentageIndex(teamAStats, stats2019path);
+            double teamBrpi = methods.RatingsPercentageIndex(teamBStats, stats2019path);
 
             // Update the UI.
+            txtbxTeamArpi.Text = teamArpi.ToString();
+            txtbxTeamBrpi.Text = teamBrpi.ToString();
+
             txtbxTeamAwinPer.Text = teamArealWinPerc.ToString();
             txtbxTeamBwinPer.Text = teamBrealWinPerc.ToString();
 

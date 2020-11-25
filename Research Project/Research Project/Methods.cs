@@ -35,6 +35,41 @@ namespace Research_Project
         }
 
         /// <summary>
+        /// <para>
+        /// 
+        /// This will collect all stat lines from a file except from the specified team.
+        /// 
+        /// </para>
+        /// </summary>
+        /// <param name="teamName">Name of team to ignore.</param>
+        /// <param name="path">Path of the CSV file to look at.</param>
+        /// <returns name="otherTeamStats">List containing lines from CSV of teams without specified team.</returns>
+        public List<string> GetOtherTeamStats(string teamName, string path)
+        {
+            List<string> otherTeamStats = new List<string>();
+
+            // Used to read the CSV file.
+            using (StreamReader sr = new StreamReader(path))
+            {
+                // Skip the first line as it's just a header.
+                string currentLine = sr.ReadLine();
+
+                // Look line by line until the EOF.
+                while ((currentLine = sr.ReadLine()) != null)
+                {
+                    // Search for 'teamName' in current line. If it's not there, add the line to list.
+                    if (!(currentLine.IndexOf(teamName, StringComparison.CurrentCultureIgnoreCase) >= 0))
+                    {
+                        otherTeamStats.Add(currentLine);
+                    }
+                }
+                
+                // There should never not be a match for a given team name. But if there is the program will return this to avoid an error.
+                return otherTeamStats;
+            }
+        }
+
+        /// <summary>
         /// Retrieve individual stat of a team.
         /// </summary>
         /// <param name="teamStats">Line from CSV file to look through.</param>
@@ -47,6 +82,25 @@ namespace Research_Project
             double stat = double.Parse(stats[statPos]);
             return stat;
         }
+
+        /// <summary>
+        /// <para>
+        /// 
+        /// Retrieve individual string stat of a team.
+        /// 
+        /// </para>
+        /// </summary>
+        /// <param name="teamStats">Line from CSV file to look through.</param>
+        /// <param name="statPos">Position in the CSV line of the stat. (Team Name, Opponent Name, etc.)</param>
+        /// <returns name="stat">Individual stat that was requested.</returns>
+        public string GetStringStat(string teamStats, int statPos)
+        {
+            // Split the given string into an array and return the value in the given position.
+            string[] stats = teamStats.Split(',');
+            string stat = stats[statPos];
+            return stat;
+        }
+
 
         /// <summary>
         /// <para>
@@ -73,6 +127,23 @@ namespace Research_Project
                 }
             }
             return allStats;
+        }
+
+        public double GetAvgOfStats(List<string> stats, int statPos)
+        {
+            double avgOfStats = 0.0;
+            int count = 0;
+
+            foreach (string statLine in stats)
+            {
+                double stat = GetStat(statLine, statPos);
+                avgOfStats += stat;
+                count++;
+            }
+
+            avgOfStats /= count;
+
+            return avgOfStats;
         }
 
         /// <summary>
@@ -318,14 +389,14 @@ namespace Research_Project
         /// </summary>
         /// <param name="teamStats">Line from CSV file to look through.</param>
         /// <returns name="RPI">Calculated Ratings Percentage Index of the given team.</returns>
-        public int RatingsPercentageIndex(string teamStats)
+        public int RatingsPercentageIndex(string teamStats, string path)
         {
             // First step is to calculate the winning percentage of the team
             // Luckily the winning percentage is a stat kept on index 7
             double teamWinPerc = GetStat(teamStats, 7);
 
             // Next we need to find the opponents winning percentage
-            double oppWinPerc = 0.0;
+            double oppWinPerc = OppWinPer(teamStats, path);
 
             // Then we need to find the opponents opponents winning percentage
             double oppOppWinPerc = 0.0;
@@ -334,6 +405,36 @@ namespace Research_Project
             double RPI = (teamWinPerc * 0.25) + (oppWinPerc * 0.5) + (oppOppWinPerc * 0.25);
 
             return (int)RPI;
+        }
+
+        public double OppWinPer(string teamStats, string path)
+        {
+            double avgWP = 0.0;
+
+            // First we need to get the name of the given team.
+            // Team names are located at the first index.
+            string teamName = GetStringStat(teamStats, 0);
+
+            // Then, we need to look through the given CSV and only save the lines that DON'T include the given team name.
+            List<string> oppTeamStats = GetOtherTeamStats(teamName, path);
+
+            // After that, we need to take out and average the Winning Percentage for each team.
+            // Winning Percentage is a stat kept on index 7
+            avgWP = GetAvgOfStats(oppTeamStats, 7);
+
+            // Finally, we can return the result.
+            return avgWP;
+        }
+
+        public double OppOppWinPer(string teamStats, string path)
+        {
+            double avgWP = 0.0;
+
+            // First we need to get the name of the given team.
+            // Team names are located at the first index.
+            string teamName = GetStringStat(teamStats, 0);
+
+            return avgWP;
         }
     }
 }
