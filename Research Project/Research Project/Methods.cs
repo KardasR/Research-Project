@@ -129,6 +129,16 @@ namespace Research_Project
             return allStats;
         }
 
+        /// <summary>
+        /// <para>
+        /// 
+        /// Add up all of the given stats and return the average of the stats.
+        /// 
+        /// </para>
+        /// </summary>
+        /// <param name="stats">List of stats to average.</param>
+        /// <param name="statPos">The position of the stat needed to be averaged.</param>
+        /// <returns name="avgOfStats">The average of the stats.</returns>
         public double GetAvgOfStats(List<string> stats, int statPos)
         {
             double avgOfStats = 0.0;
@@ -369,7 +379,7 @@ namespace Research_Project
         /// <summary>
         /// <para>
         ///
-        /// This will find the Ratings Percentage Index of a team
+        /// This will find the Ratings Percentage Index of a given team.
         /// 
         /// </para>
         /// <para>
@@ -389,7 +399,7 @@ namespace Research_Project
         /// </summary>
         /// <param name="teamStats">Line from CSV file to look through.</param>
         /// <returns name="RPI">Calculated Ratings Percentage Index of the given team.</returns>
-        public int RatingsPercentageIndex(string teamStats, string path)
+        public double RatingsPercentageIndex(string teamStats, string path)
         {
             // First step is to calculate the winning percentage of the team
             // Luckily the winning percentage is a stat kept on index 7
@@ -399,12 +409,12 @@ namespace Research_Project
             double oppWinPerc = OppWinPer(teamStats, path);
 
             // Then we need to find the opponents opponents winning percentage
-            double oppOppWinPerc = 0.0;
+            double oppOppWinPerc = OppOppWinPer(teamStats, path);
 
             // Now we calculate the Ratings Percentage Index of the given team.
             double RPI = (teamWinPerc * 0.25) + (oppWinPerc * 0.5) + (oppOppWinPerc * 0.25);
 
-            return (int)RPI;
+            return RPI;
         }
 
         public double OppWinPer(string teamStats, string path)
@@ -429,10 +439,26 @@ namespace Research_Project
         public double OppOppWinPer(string teamStats, string path)
         {
             double avgWP = 0.0;
+            int count = 0;
 
             // First we need to get the name of the given team.
             // Team names are located at the first index.
             string teamName = GetStringStat(teamStats, 0);
+
+            // Then, we need to look through the given CSV and only save the lines that DON'T include the given team name.
+            List<string> oppTeamStats = GetOtherTeamStats(teamName, path);
+
+            // Now we loop through the list and add up all of the win percentages against teams not including the given team and their opponents.
+            foreach (string teamStat in oppTeamStats)
+            {
+                string otherTeamName = GetStringStat(teamStat, 0);
+                List<string> oppOppTeamStats = GetOtherTeamStats(otherTeamName, path);
+                oppOppTeamStats.Remove(teamStats);
+                avgWP += GetAvgOfStats(oppOppTeamStats, 7);
+                count++;
+            }
+
+            avgWP /= count;
 
             return avgWP;
         }

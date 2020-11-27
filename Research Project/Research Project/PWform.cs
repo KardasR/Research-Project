@@ -59,6 +59,9 @@ namespace Research_Project
             txtbxTeamAogPW.Text = teamAogPW.ToString();
             txtbxTeamBogPW.Text = teamBogPW.ToString();
 
+            txtbxTeamArpi.Text = teamArpi.ToString();
+            txtbxTeamBrpi.Text = teamBrpi.ToString();
+
             // Show the predicted winner of the Original Pythagorean Wins method.
             if (teamAogPW > teamBogPW)
                 txtbxOGPWWinner.Text = listBoxTeamA.Text;
@@ -76,6 +79,12 @@ namespace Research_Project
                 txtbxRealWPWinner.Text = listBoxTeamA.Text;
             else
                 txtbxRealWPWinner.Text = listBoxTeamB.Text;
+
+            // Show the predicted winner of the Ratings Percentage Index
+            if (teamArpi > teamBrpi)
+                txtbxRPIWinner.Text = listBoxTeamA.Text;
+            else
+                txtbxRPIWinner.Text = listBoxTeamB.Text;
         }
     }
 }
