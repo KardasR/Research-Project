@@ -398,6 +398,7 @@ namespace Research_Project
         /// </para>
         /// </summary>
         /// <param name="teamStats">Line from CSV file to look through.</param>
+        /// <param name="path">Path of the CSV file to look at.</param>
         /// <returns name="RPI">Calculated Ratings Percentage Index of the given team.</returns>
         public double RatingsPercentageIndex(string teamStats, string path)
         {
@@ -417,6 +418,17 @@ namespace Research_Project
             return RPI;
         }
 
+        /// <summary>
+        /// <para>
+        /// 
+        /// This will get the Opponents Winning Percentage. This is esentially the combined Win Percentage of every team 
+        /// in the league, not including the given team.
+        /// 
+        /// </para>
+        /// </summary>
+        /// <param name="teamStats">Line from CSV file to look through.</param>
+        /// <param name="path">Path of the CSV file to look at.</param>
+        /// <returns name="avgWP">Opponents Winning Percentage</returns>
         public double OppWinPer(string teamStats, string path)
         {
             double avgWP = 0.0;
@@ -436,6 +448,17 @@ namespace Research_Project
             return avgWP;
         }
 
+        /// <summary>
+        /// <para>
+        /// 
+        /// This will get the Opponents Opponents Winning Percentage. This is the combined Win Percentage of every team
+        /// in the league and their opponents, not including the given team.
+        /// 
+        /// </para>
+        /// </summary>
+        /// <param name="teamStats">Line from CSV file to look through.</param>
+        /// <param name="path">Path of the CSV file to look at.</param>
+        /// <returns name="avgWP">Opponents Opponents Winning Percentage.</returns>
         public double OppOppWinPer(string teamStats, string path)
         {
             double avgWP = 0.0;
@@ -458,9 +481,53 @@ namespace Research_Project
                 count++;
             }
 
+            // Calculate and return the average Win Percentage.
             avgWP /= count;
 
             return avgWP;
+        }
+
+        /// <summary>
+        /// <para>
+        /// 
+        /// This will get the special teams percentage of the given team.
+        /// 
+        /// </para>
+        /// <para>
+        /// 
+        /// This is calculated through the formula, OPP% + OPK%. 
+        /// 
+        /// </para>
+        /// <para>
+        /// 
+        /// Where: 
+        /// OPP% = Overall Powerplay Percentage | 
+        /// OPK% = Overall Penalty Killing Percentage
+        /// 
+        /// </para>
+        /// 
+        /// Link to the website that I got this from.
+        /// https://nathangabay.com/you-down-with-opp-and-other-special-teams-metrics/
+        /// 
+        /// </summary>
+        /// <param name="teamStats">Line from CSV file to look through.</param>
+        /// <returns></returns>
+        public double GetSTPer(string teamStats)
+        {
+            double stPercentage = 0.0;
+            double ppGF = GetStat(teamStats, 13);    // Powerplay Goals For is located at index 13
+            double ppGA = GetStat(teamStats, 16);    // Powerplay Goals Against is located at index 16
+            double ppOp = GetStat(teamStats, 14);    // Powerplay Opportunities is located at index 14
+            double pkGF = GetStat(teamStats, 19);    // Penalty Kill Goals For is located at index 19
+            double pkGA = GetStat(teamStats, 20);    // Penalty Kill Goals Against is located at index 20
+            double pkOp = GetStat(teamStats, 17);    // Penalty Kill Opportunities is located at index 17
+
+            double OPP = (ppGF - ppGA) / ppOp;
+            double OPK = (pkGA - pkGF) / pkOp;
+
+            stPercentage = OPP + OPK;
+
+            return stPercentage;
         }
     }
 }

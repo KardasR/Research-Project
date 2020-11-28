@@ -59,6 +59,11 @@
             this.label15 = new System.Windows.Forms.Label();
             this.txtbxTeamBrpi = new System.Windows.Forms.TextBox();
             this.txtbxRPIWinner = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtbxTeamASTPer = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtbxTeamBSTPer = new System.Windows.Forms.TextBox();
+            this.txtbxSTPerWinner = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listBoxTeamA
@@ -98,7 +103,7 @@
             "Vegas Golden Knights",
             "Washington Capitals",
             "Winnipeg Jets"});
-            this.listBoxTeamA.Location = new System.Drawing.Point(51, 292);
+            this.listBoxTeamA.Location = new System.Drawing.Point(51, 366);
             this.listBoxTeamA.Name = "listBoxTeamA";
             this.listBoxTeamA.Size = new System.Drawing.Size(145, 104);
             this.listBoxTeamA.TabIndex = 0;
@@ -140,14 +145,14 @@
             "Vegas Golden Knights",
             "Washington Capitals",
             "Winnipeg Jets"});
-            this.listBoxTeamB.Location = new System.Drawing.Point(830, 294);
+            this.listBoxTeamB.Location = new System.Drawing.Point(830, 368);
             this.listBoxTeamB.Name = "listBoxTeamB";
             this.listBoxTeamB.Size = new System.Drawing.Size(145, 104);
             this.listBoxTeamB.TabIndex = 1;
             // 
             // btnPredict
             // 
-            this.btnPredict.Location = new System.Drawing.Point(275, 332);
+            this.btnPredict.Location = new System.Drawing.Point(275, 406);
             this.btnPredict.Name = "btnPredict";
             this.btnPredict.Size = new System.Drawing.Size(482, 64);
             this.btnPredict.TabIndex = 6;
@@ -159,7 +164,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(87, 260);
+            this.label3.Location = new System.Drawing.Point(87, 334);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 20);
             this.label3.TabIndex = 7;
@@ -169,7 +174,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(869, 262);
+            this.label4.Location = new System.Drawing.Point(869, 336);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 20);
             this.label4.TabIndex = 8;
@@ -359,7 +364,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(437, 264);
+            this.label13.Location = new System.Drawing.Point(437, 338);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(141, 25);
             this.label13.TabIndex = 29;
@@ -368,7 +373,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(275, 292);
+            this.textBox1.Location = new System.Drawing.Point(275, 366);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -424,11 +429,63 @@
             this.txtbxRPIWinner.Text = "Detroit Red Wings";
             this.txtbxRPIWinner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(8, 258);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(97, 26);
+            this.label16.TabIndex = 36;
+            this.label16.Text = "Special\r\nTeams Percentage";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // txtbxTeamASTPer
+            // 
+            this.txtbxTeamASTPer.Location = new System.Drawing.Point(111, 264);
+            this.txtbxTeamASTPer.Name = "txtbxTeamASTPer";
+            this.txtbxTeamASTPer.ReadOnly = true;
+            this.txtbxTeamASTPer.Size = new System.Drawing.Size(100, 20);
+            this.txtbxTeamASTPer.TabIndex = 37;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(921, 258);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(97, 26);
+            this.label17.TabIndex = 38;
+            this.label17.Text = "Special\r\nTeams Percentage";
+            // 
+            // txtbxTeamBSTPer
+            // 
+            this.txtbxTeamBSTPer.Location = new System.Drawing.Point(815, 264);
+            this.txtbxTeamBSTPer.Name = "txtbxTeamBSTPer";
+            this.txtbxTeamBSTPer.ReadOnly = true;
+            this.txtbxTeamBSTPer.Size = new System.Drawing.Size(100, 20);
+            this.txtbxTeamBSTPer.TabIndex = 39;
+            // 
+            // txtbxSTPerWinner
+            // 
+            this.txtbxSTPerWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbxSTPerWinner.Location = new System.Drawing.Point(275, 259);
+            this.txtbxSTPerWinner.Multiline = true;
+            this.txtbxSTPerWinner.Name = "txtbxSTPerWinner";
+            this.txtbxSTPerWinner.ReadOnly = true;
+            this.txtbxSTPerWinner.Size = new System.Drawing.Size(482, 26);
+            this.txtbxSTPerWinner.TabIndex = 40;
+            this.txtbxSTPerWinner.Text = "Detroit Red Wings";
+            this.txtbxSTPerWinner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // PWform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 408);
+            this.ClientSize = new System.Drawing.Size(1030, 482);
+            this.Controls.Add(this.txtbxSTPerWinner);
+            this.Controls.Add(this.txtbxTeamBSTPer);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.txtbxTeamASTPer);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.txtbxRPIWinner);
             this.Controls.Add(this.txtbxTeamBrpi);
             this.Controls.Add(this.label15);
@@ -500,6 +557,11 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtbxTeamBrpi;
         private System.Windows.Forms.TextBox txtbxRPIWinner;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtbxTeamASTPer;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtbxTeamBSTPer;
+        private System.Windows.Forms.TextBox txtbxSTPerWinner;
     }
 }
 

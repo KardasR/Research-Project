@@ -46,6 +46,10 @@ namespace Research_Project
             double teamArpi = methods.RatingsPercentageIndex(teamAStats, stats2019path);
             double teamBrpi = methods.RatingsPercentageIndex(teamBStats, stats2019path);
 
+            // Get the Special Teams Percentage for each team.
+            double teamASTPer = methods.GetSTPer(teamAStats);
+            double teamBSTPer = methods.GetSTPer(teamBStats);
+
             // Update the UI.
             txtbxTeamArpi.Text = teamArpi.ToString();
             txtbxTeamBrpi.Text = teamBrpi.ToString();
@@ -61,6 +65,9 @@ namespace Research_Project
 
             txtbxTeamArpi.Text = teamArpi.ToString();
             txtbxTeamBrpi.Text = teamBrpi.ToString();
+
+            txtbxTeamASTPer.Text = teamASTPer.ToString();
+            txtbxTeamBSTPer.Text = teamBSTPer.ToString();
 
             // Show the predicted winner of the Original Pythagorean Wins method.
             if (teamAogPW > teamBogPW)
@@ -85,6 +92,12 @@ namespace Research_Project
                 txtbxRPIWinner.Text = listBoxTeamA.Text;
             else
                 txtbxRPIWinner.Text = listBoxTeamB.Text;
+
+            // Show the predicted winner of the Special Teams Indicator (Not an actual prediction method but interesting to look at.)
+            if (teamASTPer > teamBSTPer)
+                txtbxSTPerWinner.Text = listBoxTeamA.Text;
+            else
+                txtbxSTPerWinner.Text = listBoxTeamB.Text;
         }
     }
 }
