@@ -64,6 +64,11 @@
             this.label17 = new System.Windows.Forms.Label();
             this.txtbxTeamBSTPer = new System.Windows.Forms.TextBox();
             this.txtbxSTPerWinner = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtbxTeamAESA = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtbxTeamBESA = new System.Windows.Forms.TextBox();
+            this.txtbxESAWinner = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listBoxTeamA
@@ -476,11 +481,63 @@
             this.txtbxSTPerWinner.Text = "Detroit Red Wings";
             this.txtbxSTPerWinner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(28, 297);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(77, 26);
+            this.label18.TabIndex = 41;
+            this.label18.Text = "Even\r\nStrength Ability";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // txtbxTeamAESA
+            // 
+            this.txtbxTeamAESA.Location = new System.Drawing.Point(111, 303);
+            this.txtbxTeamAESA.Name = "txtbxTeamAESA";
+            this.txtbxTeamAESA.ReadOnly = true;
+            this.txtbxTeamAESA.Size = new System.Drawing.Size(100, 20);
+            this.txtbxTeamAESA.TabIndex = 42;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(924, 297);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(77, 26);
+            this.label19.TabIndex = 43;
+            this.label19.Text = "Even\r\nStrength Ability";
+            // 
+            // txtbxTeamBESA
+            // 
+            this.txtbxTeamBESA.Location = new System.Drawing.Point(815, 302);
+            this.txtbxTeamBESA.Name = "txtbxTeamBESA";
+            this.txtbxTeamBESA.ReadOnly = true;
+            this.txtbxTeamBESA.Size = new System.Drawing.Size(100, 20);
+            this.txtbxTeamBESA.TabIndex = 44;
+            // 
+            // txtbxESAWinner
+            // 
+            this.txtbxESAWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbxESAWinner.Location = new System.Drawing.Point(275, 298);
+            this.txtbxESAWinner.Multiline = true;
+            this.txtbxESAWinner.Name = "txtbxESAWinner";
+            this.txtbxESAWinner.ReadOnly = true;
+            this.txtbxESAWinner.Size = new System.Drawing.Size(482, 26);
+            this.txtbxESAWinner.TabIndex = 45;
+            this.txtbxESAWinner.Text = "Detroit Red Wings";
+            this.txtbxESAWinner.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // PWform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1030, 482);
+            this.Controls.Add(this.txtbxESAWinner);
+            this.Controls.Add(this.txtbxTeamBESA);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.txtbxTeamAESA);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.txtbxSTPerWinner);
             this.Controls.Add(this.txtbxTeamBSTPer);
             this.Controls.Add(this.label17);
@@ -562,6 +619,11 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtbxTeamBSTPer;
         private System.Windows.Forms.TextBox txtbxSTPerWinner;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtbxTeamAESA;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtbxTeamBESA;
+        private System.Windows.Forms.TextBox txtbxESAWinner;
     }
 }
 

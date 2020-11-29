@@ -50,6 +50,10 @@ namespace Research_Project
             double teamASTPer = methods.GetSTPer(teamAStats);
             double teamBSTPer = methods.GetSTPer(teamBStats);
 
+            // Get the Even Strength Ability for each team.
+            double teamAEvnAbi = methods.EvenAbil(teamAStats);
+            double teamBEvnAbi = methods.EvenAbil(teamBStats);
+
             // Update the UI.
             txtbxTeamArpi.Text = teamArpi.ToString();
             txtbxTeamBrpi.Text = teamBrpi.ToString();
@@ -68,6 +72,9 @@ namespace Research_Project
 
             txtbxTeamASTPer.Text = teamASTPer.ToString();
             txtbxTeamBSTPer.Text = teamBSTPer.ToString();
+
+            txtbxTeamAESA.Text = teamAEvnAbi.ToString();
+            txtbxTeamBESA.Text = teamBEvnAbi.ToString();
 
             // Show the predicted winner of the Original Pythagorean Wins method.
             if (teamAogPW > teamBogPW)
@@ -98,6 +105,12 @@ namespace Research_Project
                 txtbxSTPerWinner.Text = listBoxTeamA.Text;
             else
                 txtbxSTPerWinner.Text = listBoxTeamB.Text;
+
+            // Show the predicted winner of the Even Strength Ability (Not an actual prediction method but interesting to look at.)
+            if (teamAEvnAbi > teamBEvnAbi)
+                txtbxTeamAESA.Text = listBoxTeamA.Text;
+            else
+                txtbxTeamBESA.Text = listBoxTeamB.Text;
         }
     }
 }

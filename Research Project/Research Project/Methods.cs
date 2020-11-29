@@ -529,5 +529,39 @@ namespace Research_Project
 
             return stPercentage;
         }
+
+        /// <summary>
+        /// <para>
+        /// 
+        /// This will calulate a teams even strength ability specifically looking at 
+        /// statistics that are not influenced by special teams.
+        /// 
+        /// </para>
+        /// <para>
+        /// 
+        /// This is calculated through the formula, (CF% * SV%) + S%
+        /// 
+        /// </para>
+        /// <para>
+        /// 
+        /// Where: 
+        /// CF% = Corsi For Percentage | 
+        /// SV% = Save Percentage | 
+        /// S%  = Shooting Percentage
+        /// 
+        /// </para>
+        /// </summary>
+        /// <param name="teamStats">Line from CSV file to look through.</param>
+        /// <returns name="evenStrat">The given teams even strength ability.</returns>
+        public double EvenAbil(string teamStats)
+        {
+            double corsiForPer = GetStat(teamStats, 27);        // Corsi For % is located at index 27
+            double savePer = GetStat(teamStats, 28);            // Save % is located at index 28
+            double shootingPer = GetStat(teamStats, 29);        // Shooting % is located at index 29
+
+            double evenStrat = (corsiForPer * savePer) + shootingPer;   // I custom made this so let's hope it's accurate haha
+
+            return evenStrat;
+        }
     }
 }

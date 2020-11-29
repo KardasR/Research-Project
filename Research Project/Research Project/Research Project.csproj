@@ -84,8 +84,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="2015-2016seasonGames.csv" />
-    <None Include="2015-2016teamStats.csv" />
+    <None Include="2019-2020seasonGames.csv" />
+    <None Include="2019-2020teamStats.csv" />
     <None Include="2016-2017seasonGames.csv" />
     <None Include="2016-2017teamStats.csv" />
     <None Include="2017-2018seasonGames.csv" />
