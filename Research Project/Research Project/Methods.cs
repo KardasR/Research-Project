@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Research_Project
 {
@@ -199,9 +200,14 @@ namespace Research_Project
             }
             // After the list has been created, take an average and use that as the X value
             double avg = 0;
-            foreach (var num in potXVals)
-                avg += num;
-            avg /= potXVals.Count;
+            if (!(potXVals.Count == 0))
+            {
+                foreach (var num in potXVals)
+                    avg += num;
+                avg /= potXVals.Count;
+            }
+            else
+                avg = 2;     // Use the default value of 2 incase there are no matches found.
 
             return avg;
         }
@@ -251,6 +257,30 @@ namespace Research_Project
             // Find the percent differene
             perDiff = ((n2 - n1) / n2) * 100;
             return perDiff;
+        }
+
+        /// <summary>
+        /// <para>
+        /// 
+        /// This will get the normalized data from any given double array.
+        /// 
+        /// </para>
+        /// </summary>
+        /// <param name="data">Data to be normalized.</param>
+        /// <returns name="normVal">Sum of normalized data.</returns>
+        public double NormalizeData(double[] data)
+        {
+            double maxValue = data.Max();
+            double normVal = 0;
+
+            // Loop through every item in the array and divide by the max, add this to the holder variable to return.
+            foreach (double val in data)
+            {
+                double hold = val / maxValue;
+                normVal += hold;
+            }
+
+            return normVal;
         }
 
         /// <summary>
@@ -562,6 +592,47 @@ namespace Research_Project
             double evenStrat = (corsiForPer * savePer) + shootingPer;   // I custom made this so let's hope it's accurate haha
 
             return evenStrat;
+        }
+
+        public double SDM(string teamStats, string season2017, string season2018, string season2019)
+        {
+            string teamName = GetStringStat(teamStats, 0);
+
+            // Create arrays to store all of the stats.
+            double[] RPIs = new double[3];
+            double[] APWs = new double[3];
+            double[] STPs = new double[3];
+            double[] EAs = new double[3];
+
+            // Get the stats for the 2016-2017 season.
+            string teamStats2017 = GetTeamStats(teamName, season2017);
+            RPIs[0] = RatingsPercentageIndex(teamStats2017, season2017);
+            APWs[0] = AdjPythWins(teamStats2017);
+            STPs[0] = GetSTPer(teamStats2017);
+            EAs[0] = EvenAbil(teamStats2017);
+
+            // Get the stats for the 2017-2018 season.
+            string teamStats2018 = GetTeamStats(teamName, season2018);
+            RPIs[1] = RatingsPercentageIndex(teamStats2018, season2018);
+            APWs[1] = AdjPythWins(teamStats2018);
+            STPs[1] = GetSTPer(teamStats2018);
+            EAs[1] = EvenAbil(teamStats2018);
+
+            // Get the stats for the 2018-2019 season.
+            string teamStats2019 = GetTeamStats(teamName, season2019);
+            RPIs[2] = RatingsPercentageIndex(teamStats2019, season2019);
+            APWs[2] = AdjPythWins(teamStats2019);
+            STPs[2] = GetSTPer(teamStats2019);
+            EAs[2] = EvenAbil(teamStats2019);
+
+            // Normalize all the data.
+            double normRPI = NormalizeData(RPIs);
+            double normAPW = NormalizeData(APWs);
+            double normSTP = NormalizeData(STPs);
+            double normEA = NormalizeData(EAs);
+
+            // This is the math for the method.
+            return normRPI + normAPW + normSTP + normEA;
         }
     }
 }

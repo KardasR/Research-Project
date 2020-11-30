@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 
 
@@ -11,8 +13,16 @@ namespace Research_Project
             InitializeComponent();
         }
 
-        // CSV file of stats for year 2019.
-        string stats2019path = @"C:\Users\Ryank\source\repos\KardasR\Research-Project\Research Project\Research Project\2018-2019teamStats.csv";
+        // Paths for different seasons.
+        string season2020 = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"2019-2020teamStats.csv");
+        string season2019 = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"2018-2019teamStats.csv");
+        string season2018 = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"2017-2018teamStats.csv");
+        string season2017 = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"2016-2017teamStats.csv");
+
+        // Default season to predict.
+        string selectedSeason = "2019-2020";
+        // Set the CSV file path to the default season.
+        string statsPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"2019-2020teamStats.csv");
 
         // Let's us use all of our custom methods.
         Methods methods = new Methods();
@@ -26,9 +36,18 @@ namespace Research_Project
         {
             // TODO: Make program wait until the user has selected two teams.
 
+            if (selectedSeason == "2019-2020")
+                statsPath = season2020;
+            else if (selectedSeason == "2018-2019")
+                statsPath = season2019;
+            else if (selectedSeason == "2017-2018")
+                statsPath = season2018;
+            else if (selectedSeason == "2016-2017")
+                statsPath = season2017;
+
             // Get the stats for the two teams.
-            string teamAStats = methods.GetTeamStats((string)listBoxTeamA.SelectedItem, stats2019path);
-            string teamBStats = methods.GetTeamStats((string)listBoxTeamB.SelectedItem, stats2019path);
+            string teamAStats = methods.GetTeamStats((string)listBoxTeamA.SelectedItem, statsPath);
+            string teamBStats = methods.GetTeamStats((string)listBoxTeamB.SelectedItem, statsPath);
 
             // Get the Original Pythagorean Wins for each team.
             double teamAogPW = methods.OrigPythWins(teamAStats);
@@ -43,8 +62,8 @@ namespace Research_Project
             double teamBrealWinPerc = methods.GetStat(teamBStats, 7);
 
             // Get the Ratings Percentage Index for each team.
-            double teamArpi = methods.RatingsPercentageIndex(teamAStats, stats2019path);
-            double teamBrpi = methods.RatingsPercentageIndex(teamBStats, stats2019path);
+            double teamArpi = methods.RatingsPercentageIndex(teamAStats, statsPath);
+            double teamBrpi = methods.RatingsPercentageIndex(teamBStats, statsPath);
 
             // Get the Special Teams Percentage for each team.
             double teamASTPer = methods.GetSTPer(teamAStats);
@@ -53,6 +72,9 @@ namespace Research_Project
             // Get the Even Strength Ability for each team.
             double teamAEvnAbi = methods.EvenAbil(teamAStats);
             double teamBEvnAbi = methods.EvenAbil(teamBStats);
+
+            double teamASDM = methods.SDM(teamAStats, season2017, season2018, season2019);
+            double teamBSDM = methods.SDM(teamBStats, season2017, season2018, season2019);
 
             // Update the UI.
             txtbxTeamArpi.Text = teamArpi.ToString();
@@ -75,6 +97,9 @@ namespace Research_Project
 
             txtbxTeamAESA.Text = teamAEvnAbi.ToString();
             txtbxTeamBESA.Text = teamBEvnAbi.ToString();
+
+            txtbxTeamASDM.Text = teamASDM.ToString();
+            txtbxTeamBSDM.Text = teamBSDM.ToString();
 
             // Show the predicted winner of the Original Pythagorean Wins method.
             if (teamAogPW > teamBogPW)
@@ -108,9 +133,20 @@ namespace Research_Project
 
             // Show the predicted winner of the Even Strength Ability (Not an actual prediction method but interesting to look at.)
             if (teamAEvnAbi > teamBEvnAbi)
-                txtbxTeamAESA.Text = listBoxTeamA.Text;
+                txtbxESAWinner.Text = listBoxTeamA.Text;
             else
-                txtbxTeamBESA.Text = listBoxTeamB.Text;
+                txtbxESAWinner.Text = listBoxTeamB.Text;
+
+            // Show the predicted winner of the SDM prediction method
+            if (teamASDM > teamBSDM)
+                txtbxSDMWinner.Text = listBoxTeamA.Text;
+            else
+                txtbxSDMWinner.Text = listBoxTeamB.Text;
+        }
+
+        private void cbSelSeason_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedSeason = cbSelSeason.SelectedItem.ToString();
         }
     }
 }

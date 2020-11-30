@@ -84,14 +84,30 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="2019-2020seasonGames.csv" />
-    <None Include="2019-2020teamStats.csv" />
-    <None Include="2016-2017seasonGames.csv" />
-    <None Include="2016-2017teamStats.csv" />
-    <None Include="2017-2018seasonGames.csv" />
-    <None Include="2017-2018teamStats.csv" />
-    <None Include="2018-2019seasonGames.csv" />
-    <None Include="2018-2019teamStats.csv" />
+    <Content Include="2019-2020seasonGames.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2019-2020teamStats.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016-2017seasonGames.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2016-2017teamStats.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017-2018seasonGames.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2017-2018teamStats.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018-2019seasonGames.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="2018-2019teamStats.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
